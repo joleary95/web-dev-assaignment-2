@@ -1,0 +1,29 @@
+<table class=" table is-bordered is-striped">
+  <thead>
+  <tr class="subtitle has-background-white-ter">
+    <th>Code</th>
+    <th>Temp</th>
+    <th>Wind Speed</th>
+    <th>Pressure</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  #{list items:_station.readings, as:'reading'}
+  <tr>
+    <td>
+     ${reading.code}
+  </td>
+    <td>
+      ${reading.temp}
+    </td>
+    <td>
+      ${reading.windSpeed}
+    </td>
+    <td>
+      ${reading.pressure}
+    </td>
+  </tr>
+  #{/list}
+  </tbody>
+</table>

@@ -1,0 +1,48 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+#{set listing:'WeatherTop Stations' /}
+
+#{menu id:"dashboard"/}
+
+#{list items:stations, as:'station'}
+<div class="content box">
+  <h1 class="title">
+    ${station.name}
+  </h1>
+  <div class="columns">
+    <div class="column">
+      <section class="box has-background-black is-flex is-flex-direction-column is-justify-content-center" style="width: 100%; height: 150px;">
+        <strong class="has-text-white"> ${station.name}</strong>
+      </section>
+    </div>
+    <div class="column">
+      <section class="box has-background-black is-flex is-flex-direction-column is-justify-content-center" style="width: 100%; height: 150px;">
+        <strong class="has-text-white">Weather</strong><br>
+        <p class="has-text-white">${station.weatherDescription()} </p>
+      </section>
+    </div>
+    <div class="column">
+      <section class="box has-background-black is-flex is-flex-direction-column is-justify-content-center" style="width: 100%; height: 150px;">
+        <strong class="has-text-white mt-4">Temp</strong>
+        <p class="has-text-white mt-4">${station.latestReading().temp} C<br mt-0>
+          ${station.latestReading().Fahrenheit()} F </p>
+      </section>
+    </div>
+    <div class="column">
+      <section class="box has-background-black is-flex is-flex-direction-column is-justify-content-center" style="width: 100%; height: 150px;">
+        <strong class="has-text-white">Wind</strong><br>
+        <p class="has-text-white ">${station.latestReading().getWindSpeed()} bft </p>
+      </section>
+    </div>
+    <div class="column">
+      <section class="box has-background-black is-flex is-flex-direction-column is-justify-content-center" style="width: 100%; height: 150px;">
+        <strong class="has-text-white">Pressure</strong><br>
+        <p class="has-text-white">${station.latestReading().pressure} hpa</p>
+      </section>
+    </div>
+  </div>
+  #{listreadings station:station/}
+</div>
+#{/list}
+
+
